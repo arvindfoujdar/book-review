@@ -1,0 +1,26 @@
+{% extends 'my_app/base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+        
+        <h2>{{ category.name }}</h2>
+        {% if books %}
+         <div class="book-container">
+           {% for book in books %}
+             <div class="book">
+               <div class="book-thumbnail">
+                 <img src="{{ book.thumbnail }}" alt="Book Thumbnail" style="width: 100px; height: 150px; object-fit: cover;">
+               </div>
+               <div class="book-details" style="margin-left: 20px;">
+                 <h3 style="margin-top: 0; margin-bottom: 5px;">{{ book.title }}</h3>
+                 <p style="margin-bottom: 10px;">Authors: {{ book.authors|join:", " }}</p>
+                 <p style="margin-bottom: 10px;">Rating: {{ book.rating }}</p>
+               </div>
+             </div>
+           {% endfor %}
+         </div>
+       {% else %}
+         <p>No books found.</p>
+       {% endif %}
+    </main>
+{% endblock %}

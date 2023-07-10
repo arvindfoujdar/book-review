@@ -1,0 +1,15 @@
+{% extends 'my_app/base.html' %}
+{% load static %}
+{% block content %}
+    <main>
+        
+
+        <article class="book">
+            <h2>{{ book.title }}</h2>
+            <p>By {{ book.author }}</p>
+            <p>Last updated {{book.date_posted}} </p>
+            <p>{{ book.pages }} pages</p>
+            <p>{{ book.review }}</p>
+        </article>
+    </main>
+{% endblock %}

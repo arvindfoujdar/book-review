@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HighBook | About</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1c;
+        color: #fff;
+      }
+      
+      /* About section styles */
+      .about-section {
+        margin: 50px auto;
+        max-width: 700px;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      
+      .about-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      
+      .about-section p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+      
+      /* Contact section styles */
+      .contact-section {
+        margin: 50px auto;
+        max-width: 700px;
+        padding: 20px;
+        background-color: #333;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      
+      .contact-section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      
+      .contact-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+      
+      .contact-details p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin: 10px 0;
+      }
+      
+      /* Footer styles */
+      footer {
+        text-align: center;
+        padding: 20px 0;
+        background-color: #0d0d0d;
+        color: #fff;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div float="left" color="white" >
+      <p color="black"><b>
+        <a href="{% url 'home' %}">HOME</a>
+      </b></p>
+  </div>
+    <!-- About section -->
+    <div class="about-section">
+      <h2>Our Vision</h2>
+      <p>
+        At HighBook, we believe that everyone should have access to quality book reviews without having to pay for them. Our vision is to create a community of book lovers who can share their opinions on the books they have read, and help others discover their next favorite book.
+      </p>
+    </div>
+    
+    <!-- Contact section -->
+    <div class="contact-section">
+      <h2>Contact Us</h2>
+      <div class="contact-details">
+        <p><strong>Address:</strong> 123 Main Street, Anytown, USA</p>
+        <p><strong>Phone:</strong> (555) 555-5555</p>
+        <p><strong>Email:</strong> contact@highbook.com</p>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+      &copy; 2023 HighBook | All Rights Reserved
+    </footer>
+  </body>
+</html>

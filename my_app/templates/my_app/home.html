@@ -1,0 +1,58 @@
+{% extends 'my_app/base.html' %}
+{% load static %}
+{% block content %}
+  <main>
+      <h2>Welcome to High Book</h2>
+         <p>We provide quality book reviews for free. Browse our categories to find your next great read.</p>
+         {% if books %}
+         <div class="book-container">
+           {% for book in books %}
+             <div class="book">
+               <div class="book-thumbnail">
+                 <img src="{{ book.thumbnail }}" alt="Book Thumbnail" style="width: 100px; height: 150px; object-fit: cover;">
+               </div>
+               <div class="book-details" style="margin-left: 20px;">
+                 <h3 style="margin-top: 0; margin-bottom: 5px;">{{ book.title|truncatechars:40 }}</h3>
+                 <p style="margin-bottom: 10px;">Authors: {{ book.authors|join:", " }}</p>
+                 <p style="margin-bottom: 10px;">Published: {{ book.release_year }}</p>
+               </div>
+             </div>
+           {% endfor %}
+         </div>
+       {% else %}
+         <p>No books found.</p>
+       {% endif %}
+       
+       <style>
+         .book-container {
+           display: flex;
+           flex-wrap: wrap;
+           margin-bottom: 20px;
+         }
+       
+         .book {
+           display: flex;
+           align-items: center;
+           width: 25%;
+           margin-bottom: 20px;
+         }
+       
+         @media (max-width: 768px) {
+           .book {
+             width: 50%;
+           }
+         }
+       
+         @media (max-width: 480px) {
+           .book {
+             width: 100%;
+           }
+         }
+       </style>
+       
+         
+  </main>
+
+  
+{% endblock %}
+
