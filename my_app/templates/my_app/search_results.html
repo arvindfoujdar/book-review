@@ -1,28 +1,6 @@
 {% extends 'my_app/base.html' %}
 
 {% block content %}
-  <!-- <h1>Search Results for "{{ query }}"</h1> 
-  {% if books %}
-  <ul>
-    {% for book in books %}
-      <li>
-        <div class="book-info">
-          <div class="book-details">
-            <h3>{{ book.title }}</h3>
-            <p>Authors: {{ book.authors|join:", " }}</p>
-          </div>
-          {% if book.thumbnail %}
-            <div class="book-thumbnail">
-              <img src="{{ book.thumbnail }}" alt="Book Thumbnail">
-            </div>
-          {% endif %}
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No books found.</p>
-{% endif %} -->
 
 <!-- books.html -->
 <h1>Search Results for {{query}}</h1>

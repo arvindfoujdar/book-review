@@ -39,7 +39,7 @@ def search(request):
     query = request.GET.get('q')
     page_number = request.GET.get('page', 1) 
     
-    books_per_page = 8  # Number of books to display per page
+    books_per_page = 24  # Number of books to display per page
     start_index = (int(page_number) - 1) * books_per_page
     
     books = search_books(query, max_results=books_per_page, start_index=start_index)
