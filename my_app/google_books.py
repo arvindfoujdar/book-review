@@ -24,6 +24,7 @@ def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance')
             book_info = book['volumeInfo']
             title = book_info.get('title')
             authors = book_info.get('authors', [])
+            book_id = book['id']
             # Extracting year of publication
             published_date = book_info.get('publishedDate')
             year_ = published_date.split('-')[0] if published_date else None
@@ -35,6 +36,7 @@ def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance')
                 'authors': authors,
                 'thumbnail': thumbnail ,
                 'release_year' : year_ ,
+                'book_id' : book_id ,
             }
             
             books.append(book_data)
