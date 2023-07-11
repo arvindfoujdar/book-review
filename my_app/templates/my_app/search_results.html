@@ -31,10 +31,11 @@
   <div class="book-container">
     {% for book in books %}
       <div class="book"  >
-        <a href="{% url 'book_detail' book_id=book.id %}"></a>
+        <a href="{% url 'book_detail' book_id=book.book_id %}">
         <div class="book-thumbnail">
           <img src="{{ book.thumbnail }}" alt="Book Thumbnail" style="width: 100px; height: 150px; object-fit: cover;">
         </div>
+        </a>
         <div class="book-details" style="margin-left: 20px;">
           <h3 style="margin-top: 0; margin-bottom: 5px;">{{ book.title|truncatechars:40 }}</h3>
           <p style="margin-bottom: 10px;">Authors: {{ book.authors|join:", " | truncatechars:40 }}</p>
@@ -118,5 +119,6 @@
     border-radius: 3px;
   }
 </style>
+
 
 {% endblock %}

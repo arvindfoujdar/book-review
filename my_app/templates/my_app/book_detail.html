@@ -2,14 +2,58 @@
 {% load static %}
 {% block content %}
     <main>
-        
+    {% if book %}
+    <h1>{{ book.title }}</h1>
+    <div class="book-info">
+      <div class="book-thumbnail">
+        <img src="{{ book.thumbnail }}" alt="Book Thumbnail">
+      </div>
+      <div class="book-details">
+        <p><strong>Authors:</strong> {{ book.authors|join:", " }}</p>
+        <p><strong>Categories:</strong> {{ book.categories|join:", " }}</p>
+        <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+        <p><strong>Published Date:</strong> {{ book.published_date }}</p>
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><a href="{{ book.preview_link }}" target="_blank">Preview</a></p>
+      </div>
+    </div>
+    {% else %}
+        <p>No books found.</p>
 
-        <article class="book">
-            <h2>{{ book.title }}</h2>
-            <p>By {{ book.author }}</p>
-            <p>Last updated {{book.date_posted}} </p>
-            <p>{{ book.pages }} pages</p>
-            <p>{{ book.review }}</p>
-        </article>
-    </main>
+    {% endif %}
+         </main>
+
+         <style>
+            .book-info {
+              display: flex;
+              align-items: center;
+            }
+          
+            .book-thumbnail {
+              margin-right: 20px;
+            }
+          
+            .book-thumbnail img {
+              width: 200px;
+              height: auto;
+            }
+          
+            .book-details {
+              font-size: 16px;
+            }
+          
+            .book-details p {
+              margin-bottom: 10px;
+            }
+          
+            .book-details strong {
+              font-weight: bold;
+            }
+          
+            .book-details a {
+              color: blue;
+              text-decoration: underline;
+            }
+          </style>
 {% endblock %}
+

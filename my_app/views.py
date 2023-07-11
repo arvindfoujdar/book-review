@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Book, Category
-from .google_books import search_books
+from .google_books import search_books,book_data
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -19,9 +19,8 @@ def login(request):
 def about(request):
     return render(request, 'my_app/about.html')
 
-def book_detail(request):
-    book_id = request.Get.get('book_id')
-
+def book_detail(request,book_id):
+    book = book_data(volume_id = book_id)
     return render(request, 'my_app/book_detail.html', {'book': book})
 
 def category_detail(request, category_id):
