@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = ' AIzaSyA6J4OPdUsG488jDSec2RJi2gFOneWm_xA' 
+API_KEY = ' ' 
 
 def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance'):
     url = 'https://www.googleapis.com/books/v1/volumes'
