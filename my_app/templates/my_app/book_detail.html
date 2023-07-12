@@ -13,7 +13,7 @@
         <p><strong>Categories:</strong> {{ book.categories|join:", " }}</p>
         <p><strong>Publisher:</strong> {{ book.publisher }}</p>
         <p><strong>Published Date:</strong> {{ book.published_date }}</p>
-        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><strong>Description:</strong> {{ book.description| safe }}</p>
         <p><a href="{{ book.preview_link }}" target="_blank">Preview</a></p>
       </div>
     </div>

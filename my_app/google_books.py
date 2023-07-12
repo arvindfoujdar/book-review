@@ -10,7 +10,7 @@ def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance')
         'maxResults': max_results,
         'startIndex': start_index,
         'printType' : 'books' ,
-        'filter' : 'ebooks' ,
+        'filter' : 'paid-ebooks' ,
         'orderBy' : orderBy ,
     }
     
