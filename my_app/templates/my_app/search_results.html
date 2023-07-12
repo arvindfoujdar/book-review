@@ -14,17 +14,19 @@
           <img src="{{ book.thumbnail }}" alt="Book Thumbnail" style="width: 100px; height: 150px; object-fit: cover;">
         </div>
         </a>
-        <a href="{% url 'book_detail' book_id=book.book_id %}">
-        <div class="book-details" style="margin-left: 20px;padding: 5px;">
-          <h4 style="margin-top: 0; margin-bottom: 5px;color: #333;">{{ book.title|truncatechars:40 }}</h4>
-          
-          <p style="margin-bottom: 5px;">Authors: {{ book.authors|join:", " | truncatechars:40 }}</p>
+        
+        <div class="book-details" style="margin-left: 0px;padding: 5px;">
+          <div>
+          <h4 style="margin-top: 0; margin-bottom: 5px;color: #333;">{{ book.title|truncatechars:30 }}</h4>
+          </div>
+          <div>
+          <p style="margin-bottom: 5px;">Authors: {{ book.authors|join:", " | truncatechars:30 }}</p>
           <p style="margin-bottom: 5px;">Category: {{ book.category| join:", " }}</p>
           <p style="margin-bottom: 5px;">Published: {{ book.release_year }}</p>
-          
+          </div>
         </div>
-        </a>
-      </div>
+          
+      </div> 
     {% endfor %}
   </div>  
 
@@ -59,10 +61,12 @@
     align-items: center;
     width: 30%;
     height: 200px;
+    border-style: ridge;
     margin-bottom: 20px;
-    border-style: outset;
     margin-right: auto;
     margin-left: auto;
+    padding: 5px;
+    background-color: rgb(194, 172, 172);
     
   }
 
