@@ -24,9 +24,34 @@
     <div style="padding: 3%;">
     <p><strong>Description:</strong> {{ book.description| safe }}</p>
     </div>
-    {% else %}
+      <div style="padding-bottom: 1%;">
+        <h2 style="color: aliceblue;font-weight: 600;padding-left: 5%;">More like this :</h2>
+      </div>
+        <div class="book-container">
+          {% for book in related_books %}
+            <div class="book"  >
+              <a href="{% url 'book_detail' book_id=book.book_id %}">
+              <div class="book-thumbnail">
+                <img src="{{ book.thumbnail }}" alt="Book Thumbnail" style="width: 100px; height: 150px; object-fit: cover;">
+              </div>
+              </a>
+              
+              <div class="book-details" style="margin-left: 0px;padding: 5px;">
+                <div>
+                <h4 style="margin-top: 0; margin-bottom: 5px;color: rgb(154, 177, 197);">{{ book.title|truncatechars:30 }}</h4>
+                </div>
+                <div>
+                <p style="margin-bottom: 5px;">Authors: {{ book.authors|join:", " | truncatechars:30 }}</p>
+                <p style="margin-bottom: 5px;">Category: {{ book.category| join:", " }}</p>
+                <p style="margin-bottom: 5px;">Published: {{ book.release_year }}</p>
+                </div>
+              </div>
+                
+            </div> 
+          {% endfor %}
+        </div>
+        {% else %}
         <p>No books found.</p>
-
     {% endif %}
          </main>
 
@@ -65,6 +90,39 @@
               color: rgb(230, 230, 235);
               text-decoration: none;
             }
+
+  .book-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
+  }
+
+  .book {
+    display: flex;
+    align-items: center;
+    width: 440px;
+    height: 200px;
+    border-style: ridge;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 5px;
+    background: linear-gradient(to right, #525b5b, #171c20);
+    
+  }
+
+  @media (max-width: 768px) {
+    .book {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .book {
+      width: 100%;
+    
           </style>
 {% endblock %}
 

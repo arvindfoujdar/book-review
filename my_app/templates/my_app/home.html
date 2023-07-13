@@ -2,8 +2,10 @@
 {% load static %}
 {% block content %}
   <main>
+    <div style="color: #ebebeb;margin-left: 3%;" >
       <h2>Welcome to High Book</h2>
-         <p>We provide quality book reviews for free. Browse our categories to find your next great read.</p>
+         <p>We provide quality book reviews for free. Browse trending and letest books here.</p>
+    </div>
          {% if books %}
          <div class="book-container">
            {% for book in books %}
@@ -16,7 +18,7 @@
             
             <div class="book-details" style="margin-left: 0px;padding: 5px;">
               <div>
-              <h4 style="margin-top: 0; margin-bottom: 5px;color: #333;">{{ book.title|truncatechars:30 }}</h4>
+              <h4 style="margin-top: 0; margin-bottom: 5px;color: rgb(154, 177, 197);">{{ book.title|truncatechars:30 }}</h4>
               </div>
               <div>
               <p style="margin-bottom: auto;">Authors: {{ book.authors|join:", " | truncatechars:30 }}</p>
@@ -42,14 +44,17 @@
   .book {
     display: flex;
     width: 440px;
-    height: auto;
+    height: 200px;
     border-style: ridge;
     margin-right: auto;
     margin-left: auto;
     padding: 5px;
-    background-color: rgb(194, 172, 172);
+    background: linear-gradient(to right, #525b5b, #171c20);
     margin-top: 3%;
     
+  }
+  .book p{
+    color:#ebebeb
   }
        
          @media (max-width: 768px) {

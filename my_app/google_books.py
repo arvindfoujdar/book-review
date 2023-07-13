@@ -82,9 +82,10 @@ def book_data(volume_id=None) :
     return book
 
 
-def get_related_books(book_id, max_results=12):
-    url = f'https://www.googleapis.com/books/v1/volumes/{book_id}/related-books'
+def get_related_books(category, max_results=12):
+    url = 'https://www.googleapis.com/books/v1/volumes'
     params = {
+        'q' : category,
         'key': API_KEY,
         'maxResults': max_results
     }
@@ -95,23 +96,28 @@ def get_related_books(book_id, max_results=12):
     related_books = []
 
     if 'items' in data:
-        for item in data['items']:
-            book = item.get('volumeInfo')
-            if book:
-                title = book.get('title')
-                authors = book.get('authors', [])
-                description = book.get('description')
-                thumbnail = book.get('imageLinks', {}).get('thumbnail')
-                preview_link = book.get('previewLink')
-
-                book_data = {
-                    'title': title,
-                    'authors': authors,
-                    'description': description,
-                    'thumbnail': thumbnail,
-                    'preview_link': preview_link,
-                }
-
-                related_books.append(book_data)
-
+        for book in data['items']:
+            book_info = book['volumeInfo']
+            title = book_info.get('title')
+            authors = book_info.get('authors', [])
+            category = book_info.get('categories',[])
+            book_id = book['id']
+            # Extracting year of publication
+            published_date = book_info.get('publishedDate')
+            year_ = published_date.split('-')[0] if published_date else None
+            
+            thumbnail = book_info.get('imageLinks', {}).get('thumbnail')
+            
+            book_data = {
+                'title': title,
+                'authors': authors,
+                'thumbnail': thumbnail ,
+                'release_year' : year_ ,
+                'book_id' : book_id ,
+                'category' : category ,
+            }
+            
+            related_books.append(book_data)
+    else: 
+        print("no data")
     return related_books
