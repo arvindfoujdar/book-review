@@ -14,8 +14,9 @@
           <img src="{{ book.thumbnail }}" alt="Book Thumbnail" style="width: 100px; height: 150px; object-fit: cover;">
         </div>
         </a>
-        
+        <a href="{% url 'book_detail' book_id=book.book_id %}">
         <div class="book-details" style="margin-left: 0px;padding: 5px;">
+          
           <div>
           <h4 style="margin-left: 4%; margin-bottom: 5px;color: rgb(154, 177, 197);">{{ book.title|truncatechars:30 }}</h4>
           </div>
@@ -24,8 +25,9 @@
           <p style="margin-bottom: 5px;">Category: {{ book.category| join:", " }}</p>
           <p style="margin-bottom: 5px;">Published: {{ book.release_year }}</p>
           </div>
+        
         </div>
-          
+        </a> 
       </div> 
     {% endfor %}
   </div>  
@@ -71,6 +73,9 @@
   }
   .book p{
     color:#ebebeb
+  }
+  .book a{
+    text-decoration: none;
   }
 
   @media (max-width: 768px) {

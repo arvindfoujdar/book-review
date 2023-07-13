@@ -3,7 +3,7 @@
 {% block content %}
     <main>
     {% if book %}
-    <h1 style="color: aliceblue;margin-left: 5%;margin-top: 5%;">    {{ book.title }}</h1>
+    <h1 style="color: aliceblue;margin-left: 5%;margin-top: 2%; margin-bottom: 2%;">    {{ book.title }}</h1>
     <div class="book-info">
       <div class="book-thumbnail">
         <img src="{{ book.thumbnail }}" alt="Book Thumbnail">
@@ -21,7 +21,7 @@
         
       </div>
     </div>
-    <div style="padding: 3%;">
+    <div style="padding: 3%;color: aliceblue;">
     <p><strong>Description:</strong> {{ book.description| safe }}</p>
     </div>
       <div style="padding-bottom: 1%;">

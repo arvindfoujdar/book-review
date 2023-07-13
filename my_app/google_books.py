@@ -44,6 +44,17 @@ def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance')
             books.append(book_data)
     
     return books
+    
+def refine_categories(categories):
+    refined_categories = []
+
+    for category in categories:
+        parts = category.split('/')
+        refined_category = parts[0].strip()
+        refined_categories.append(refined_category)
+
+    return refined_categories
+
 
 def book_data(volume_id=None) :
     url = f'https://www.googleapis.com/books/v1/volumes/{volume_id}'
@@ -59,6 +70,7 @@ def book_data(volume_id=None) :
     authors = book_info.get('authors', [])
     description = book_info.get('description')
     categories = book_info.get('categories', [])
+    refined_categories = refine_categories(categories)
     publisher = book_info.get('publisher')
     published_date = book_info.get('publishedDate')
     rating = book_info.get('averageRating')
@@ -70,7 +82,7 @@ def book_data(volume_id=None) :
         'title': title,
         'authors': authors,
         'description': description,
-        'categories': categories,
+        'categories': refined_categories,
         'publisher': publisher,
         'published_date': published_date,
         'thumbnail': thumbnail,
