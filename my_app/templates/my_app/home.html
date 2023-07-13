@@ -6,6 +6,16 @@
       <h2>Welcome to High Book</h2>
          <p>We provide quality book reviews for free. Browse trending and letest books here.</p>
     </div>
+    <div class="cat-container">
+        {% for category in categories %}
+          <div class="cat">
+            <div>
+            {{category.name}}
+            </div>
+          </div>
+          {% endfor %}
+    </div>
+
          {% if books %}
          <div class="book-container">
            {% for book in books %}
@@ -59,7 +69,7 @@
   .book a{
     text-decoration: none;
   }
-  
+
        
          @media (max-width: 768px) {
            .book {
@@ -72,6 +82,31 @@
              width: 100%;
            }
          }
+
+
+    .cat-container{
+      color: aliceblue;
+      padding: 5% ;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: baseline;
+
+
+    }
+
+    .cat {
+      width: 200px;
+      height: 40px;
+      background: linear-gradient(to right, #233d3d, #090909);
+      margin-left: 4%;
+      margin-bottom: 3%;
+      border-style: ridge;
+      border-radius: 10%;
+      font-size: large;
+      font-weight: 300;
+      align-items: center;
+      text-align: center;
+    }
        </style>
        
          

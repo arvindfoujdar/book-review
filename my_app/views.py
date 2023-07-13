@@ -10,6 +10,7 @@ def home(request):
     books = search_books(query='latest release best')
     context = {
         'books': books,
+        'categories' : categories,
     }
     return render(request, 'my_app/home.html', context)
 

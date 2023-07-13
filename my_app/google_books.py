@@ -44,7 +44,7 @@ def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance')
             books.append(book_data)
     
     return books
-    
+
 def refine_categories(categories):
     refined_categories = []
 
@@ -70,7 +70,6 @@ def book_data(volume_id=None) :
     authors = book_info.get('authors', [])
     description = book_info.get('description')
     categories = book_info.get('categories', [])
-    refined_categories = refine_categories(categories)
     publisher = book_info.get('publisher')
     published_date = book_info.get('publishedDate')
     rating = book_info.get('averageRating')
@@ -82,7 +81,7 @@ def book_data(volume_id=None) :
         'title': title,
         'authors': authors,
         'description': description,
-        'categories': refined_categories,
+        'categories': categories,
         'publisher': publisher,
         'published_date': published_date,
         'thumbnail': thumbnail,
