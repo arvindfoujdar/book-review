@@ -3,7 +3,7 @@
 {% block content %}
     <main>
     {% if book %}
-    <h1>{{ book.title }}</h1>
+    <h1 style="color: aliceblue;margin-left: 5%;margin-top: 5%;">    {{ book.title }}</h1>
     <div class="book-info">
       <div class="book-thumbnail">
         <img src="{{ book.thumbnail }}" alt="Book Thumbnail">
@@ -13,9 +13,16 @@
         <p><strong>Categories:</strong> {{ book.categories|join:", " }}</p>
         <p><strong>Publisher:</strong> {{ book.publisher }}</p>
         <p><strong>Published Date:</strong> {{ book.published_date }}</p>
-        <p><strong>Description:</strong> {{ book.description| safe }}</p>
-        <p><a href="{{ book.preview_link }}" target="_blank">Preview</a></p>
+        <p><strong>Rating :</strong> {{book.rating}} </p>
+        <p>
+          <strong>Page Count : </strong> {{book.page_count}} 
+        </p>
+        <button type="button" class="btn btn-dark"><p><a href="{{ book.preview_link }}" target="_blank">PREVIEW</a></p></button>
+        
       </div>
+    </div>
+    <div style="padding: 3%;">
+    <p><strong>Description:</strong> {{ book.description| safe }}</p>
     </div>
     {% else %}
         <p>No books found.</p>
@@ -24,9 +31,13 @@
          </main>
 
          <style>
+          p {
+            color: aliceblue;
+          }
             .book-info {
               display: flex;
               align-items: center;
+              padding: 3%;
             }
           
             .book-thumbnail {
@@ -51,8 +62,8 @@
             }
           
             .book-details a {
-              color: blue;
-              text-decoration: underline;
+              color: rgb(230, 230, 235);
+              text-decoration: none;
             }
           </style>
 {% endblock %}

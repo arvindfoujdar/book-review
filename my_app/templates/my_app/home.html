@@ -19,9 +19,9 @@
               <h4 style="margin-top: 0; margin-bottom: 5px;color: #333;">{{ book.title|truncatechars:30 }}</h4>
               </div>
               <div>
-              <p style="margin-bottom: 5px;">Authors: {{ book.authors|join:", " | truncatechars:30 }}</p>
-              <p style="margin-bottom: 5px;">Category: {{ book.category| join:", " }}</p>
-              <p style="margin-bottom: 5px;">Published: {{ book.release_year }}</p>
+              <p style="margin-bottom: auto;">Authors: {{ book.authors|join:", " | truncatechars:30 }}</p>
+              <p style="margin-bottom: auto;">Category: {{ book.category| join:", " }}</p>
+              <p style="margin-bottom: auto;">Published: {{ book.release_year }}</p>
               </div>
             </div>
               
@@ -36,21 +36,19 @@
   .book-container {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
-    margin-left: 30px;
-    margin-right: 20px;
     justify-content: center;
   }
 
   .book {
     display: flex;
-    width: 400px;
+    width: 440px;
     height: auto;
     border-style: ridge;
     margin-right: auto;
     margin-left: auto;
     padding: 5px;
     background-color: rgb(194, 172, 172);
+    margin-top: 3%;
     
   }
        
