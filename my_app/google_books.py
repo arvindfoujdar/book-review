@@ -12,6 +12,7 @@ def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance')
         'printType' : 'books' ,
         'filter' : 'ebooks' ,
         'orderBy' : orderBy ,
+        'projection' : 'lite',
     }
     
     response = requests.get(url, params=params)
@@ -24,7 +25,7 @@ def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance')
             book_info = book['volumeInfo']
             title = book_info.get('title')
             authors = book_info.get('authors', [])
-            category = book_info.get('categories',[])
+            category = book_info.get('publisher')
             book_id = book['id']
             # Extracting year of publication
             published_date = book_info.get('publishedDate')
@@ -45,15 +46,6 @@ def search_books(query=None, max_results=24 , start_index=0,orderBy='relevance')
     
     return books
 
-def refine_categories(categories):
-    refined_categories = []
-
-    for category in categories:
-        parts = category.split('/')
-        refined_category = parts[0].strip()
-        refined_categories.append(refined_category)
-
-    return refined_categories
 
 
 def book_data(volume_id=None) :

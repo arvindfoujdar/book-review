@@ -22,7 +22,10 @@ def about(request):
 
 def book_detail(request,book_id):
     book = book_data(volume_id = book_id)
-    query = book["categories"][0]
+    if book['categories'] :
+                            query = book["categories"][0]
+    else : query = book['authors'][0]
+
     related_books= get_related_books(category = query) 
     return render(request, 'my_app/book_detail.html', {'book': book,'related_books':related_books})
 
