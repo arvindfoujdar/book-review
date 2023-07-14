@@ -9,9 +9,11 @@
     <div class="cat-container">
         {% for category in categories %}
           <div class="cat">
+           <a href="{% url 'category_detail' category_name=category.name %}" >
             <div>
             {{category.name}}
             </div>
+           </a>
           </div>
           {% endfor %}
     </div>
@@ -106,6 +108,11 @@
       font-weight: 300;
       align-items: center;
       text-align: center;
+    }
+
+    .cat a {
+      text-decoration: none;
+      color: #ebebeb;
     }
        </style>
        

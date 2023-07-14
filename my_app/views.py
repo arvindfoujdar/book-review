@@ -26,10 +26,24 @@ def book_detail(request,book_id):
     related_books= get_related_books(category = query) 
     return render(request, 'my_app/book_detail.html', {'book': book,'related_books':related_books})
 
-def category_detail(request, category_id):
-    category = get_object_or_404(Category, pk=category_id)
-    books = search_books(category)
-    return render(request, 'my_app/category_detail.html', {'category': category, 'books': books})
+def category_detail(request,category_name):
+    category = category_name
+    cat ="+subject:" + category
+    page_number =int( request.GET.get('page', 1) )
+    
+    books_per_page = 24  # Number of books to display per page
+    start_index = (page_number - 1) * books_per_page
+
+    books = search_books(cat, max_results=books_per_page, start_index=start_index)
+
+    context = {
+        'books': books,
+        'category' : category ,
+        'page': page_number ,
+        'previous_page': int(page_number) - 1,
+        'next_page': int(page_number) + 1,
+    }
+    return render(request, 'my_app/category_detail.html', context)
 
 def base(request):
     categories = Category.objects.all()
