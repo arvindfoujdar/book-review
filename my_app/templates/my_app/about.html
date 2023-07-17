@@ -1,9 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HighBook | About</title>
+{% extends 'my_app/base.html' %}
+{% load static %}
+{% block content %}
+   
+    <!-- About section -->
+    <div class="about-section">
+      <h2>Our Vision</h2>
+      <p>
+        At HighBook, we believe that everyone should have access to quality book reviews without having to pay for them. Our vision is to create a community of book lovers who can share their opinions on the books they have read, and help others discover their next favorite book.
+      </p>
+    </div>
+    
+    <!-- Contact section -->
+    <div class="contact-section">
+      <h2>Contact Us</h2>
+      <div class="contact-details">
+        <p><strong>Address:</strong> 123 Main Street, Anytown, USA</p>
+        <p><strong>Phone:</strong> (555) 555-5555</p>
+        <p><strong>Email:</strong> contact@highbook.com</p>
+      </div>
+    </div>
+    
     <style>
       body {
         margin: 0;
@@ -70,34 +86,4 @@
         font-size: 0.9rem;
       }
     </style>
-  </head>
-  <body>
-    <div float="left" color="white" >
-      <p color="black"><b>
-        <a href="{% url 'home' %}">HOME</a>
-      </b></p>
-  </div>
-    <!-- About section -->
-    <div class="about-section">
-      <h2>Our Vision</h2>
-      <p>
-        At HighBook, we believe that everyone should have access to quality book reviews without having to pay for them. Our vision is to create a community of book lovers who can share their opinions on the books they have read, and help others discover their next favorite book.
-      </p>
-    </div>
-    
-    <!-- Contact section -->
-    <div class="contact-section">
-      <h2>Contact Us</h2>
-      <div class="contact-details">
-        <p><strong>Address:</strong> 123 Main Street, Anytown, USA</p>
-        <p><strong>Phone:</strong> (555) 555-5555</p>
-        <p><strong>Email:</strong> contact@highbook.com</p>
-      </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-      &copy; 2023 HighBook | All Rights Reserved
-    </footer>
-  </body>
-</html>
+{% endblock %}

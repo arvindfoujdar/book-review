@@ -1,10 +1,11 @@
 {% extends 'my_app/base.html' %}
 {% load static %}
 {% block content %}
-    <div style="color: #ebebeb;margin-left: 3%;" >
+    <div style="color: #ebebeb;margin-left: 10%;" >
       <h2>Welcome to High Book</h2>
          <p>We provide quality book reviews for free. Browse trending and letest books here.</p>
     </div>
+
     <div class="cat-container">
         {% for category in categories %}
           <div class="cat">
