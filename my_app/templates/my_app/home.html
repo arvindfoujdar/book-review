@@ -1,7 +1,6 @@
 {% extends 'my_app/base.html' %}
 {% load static %}
 {% block content %}
-  <main>
     <div style="color: #ebebeb;margin-left: 3%;" >
       <h2>Welcome to High Book</h2>
          <p>We provide quality book reviews for free. Browse trending and letest books here.</p>
@@ -30,7 +29,7 @@
             <a href="{% url 'book_detail' book_id=book.book_id %}">
             <div class="book-details" style="margin-left: 0px;padding: 5px;">
               <div>
-              <h4 style="margin-top: 0; margin-bottom: 5px;color: rgb(154, 177, 197);">{{ book.title|truncatechars:30 }}</h4>
+              <h4 style="color: rgb(154, 177, 197);">{{ book.title|truncatechars:30 }}</h4>
               </div>
               <div>
               <p style="margin-bottom: auto;">Authors: {{ book.authors|join:", " | truncatechars:30 }}</p>
@@ -46,9 +45,7 @@
          <p>No books found.</p>
        {% endif %}
        
-       
-         
-  </main>
+      
 
   
 {% endblock %}
