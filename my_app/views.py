@@ -14,8 +14,6 @@ def home(request):
     }
     return render(request, 'my_app/home.html', context)
 
-def login(request):
-    return render(request, 'my_app/login.html') 
 
 def about(request):
     return render(request, 'my_app/about.html')
