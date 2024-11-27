@@ -8,9 +8,6 @@ The HIGH BOOK is an online platform that allows users to explore and discover a 
 * Features
 * Technologies Used
 * Hosting
-* Usage
-* Contributing
-* License
 * Contact
 
 #Features :
